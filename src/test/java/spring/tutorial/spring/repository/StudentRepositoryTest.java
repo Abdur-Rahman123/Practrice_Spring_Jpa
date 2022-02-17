@@ -33,15 +33,15 @@ public void printStudent(){
 @Test
 public void saveStudent(){
     Guardian guardian=Guardian.builder()
-            .mobile("0177288")
-            .email("rahman@gmail.com")
-            .name("babul")
+            .mobile("0000000")
+            .email("karim@gmail.com")
+            .name("karim")
             .build();
 
     Student student=Student.builder()
-                    .firstName("abdur")
+                    .firstName("jamil")
                             .lastName("Rahman")
-                                    .emailId("babul@gmail.com")
+                                    .emailId("jamil@gmail.com")
                                             .guardian(guardian)
             .build();
 
@@ -65,4 +65,15 @@ public void getDataByFirstName(){
         System.out.println("GuardianName"+studentList);
     }
 
+    @Test
+    public void printStudentByEmailAddress(){
+       Student student=studentRepository.findStudentByEmailAddress("babul@gmail.com");
+        System.out.println("student"+student);
+    }
+
+    @Test
+    public void printStudentFirstNameByEmailAddress(){
+        String student=studentRepository.findStudentFirstNameByEmailAddress("rahman@gmail.com");
+        System.out.println("student"+student);
+    }
 }
